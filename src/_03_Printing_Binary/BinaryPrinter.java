@@ -10,15 +10,25 @@ public class BinaryPrinter {
 	
 	public void printByteBinary(byte b) {
 		// We first want to print the bit in the one's place
-		
+		System.out.println();
 		// Shift b seven bits to the right
-		
+	int numShifted = b >> 7;
 		// Use the & operator to "mask" the bit in the one's place
 		// This can be done by "anding" (&) it with the value of 1
-		
+	numShifted = numShifted & 1;
 		// Print the result using System.out.print (NOT System.out.println)
-		
+		System.out.print(numShifted);
 		//Use this method to print the remaining 7 bits of b
+
+		numShifted = (b >> 6) & 1;
+		System.out.print(numShifted);
+		
+		System.out.print((b >> 5) & 1);
+		System.out.print((b >> 4) & 1);
+		System.out.print((b >> 3) & 1);
+		System.out.print((b >> 2) & 1);
+		System.out.print((b >> 1) & 1);
+		System.out.print((b >> 0) & 1);
 	}
 	
 	public void printShortBinary(short s) {
@@ -49,5 +59,7 @@ public class BinaryPrinter {
 	
 	public static void main(String[] args) {
 		// Test your methods here
+		BinaryPrinter bp = new BinaryPrinter();
+		bp.printByteBinary((byte)64);
 	}
 }
