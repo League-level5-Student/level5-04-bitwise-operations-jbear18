@@ -33,33 +33,57 @@ public class BinaryPrinter {
 	
 	public void printShortBinary(short s) {
 		// Create 2 byte variables
-		
+		byte b1;
+		byte b2;
 		// Use bit shifting and masking (&) to save the first
 		// 8 bits of s in one byte, and the second 8 bits of
 		// s in the other byte
 		
+		b1 = (byte)((s >> 8) & 1);
+		b2 = (byte)((s >> 0) & 1);
+		
 		// Call printByteBinary twice using the two bytes
 		// Make sure they are in the correct order
+		printByteBinary(b1);
+		printByteBinary(b2);
 	}
 	
 	public void printIntBinary(int i) {
 		// Create 2 short variables
-		
+	short s1;
+	short s2;
 		// Use bit shifting and masking (&) to save the first
 		// 16 bits of i in one short, and the second 16 bits of
 		// i in the other short
-		
+	s1 = (byte)((i >> 16) & 1);
+	s2 = (byte)((i >> 0) & 1);
 		// Call printShortBinary twice using the two short variables
 		// Make sure they are in the correct order
+	printShortBinary(s1);
+	printShortBinary(s2);
 	}
 	
 	public void printLongBinary(long l) {
 		// Use the same method as before to complete this method
+		//create 2 variables
+		int d1;
+		int d2;
+		
+		d1 = (byte)((l >> 32) & 1);
+		d2 = (byte)((l >> 0) & 1);
+		//use bit shifting and masking (&) to save the first
+		
+		//call printIntBinary();
+		printIntBinary(d1);
+		printIntBinary(d2);
 	}
 	
 	public static void main(String[] args) {
 		// Test your methods here
 		BinaryPrinter bp = new BinaryPrinter();
 		bp.printByteBinary((byte)64);
+		bp.printIntBinary((byte)32);
+		bp.printLongBinary((byte)128);
 	}
+	
 }
